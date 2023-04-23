@@ -4,7 +4,8 @@
 }
 
 body {
-    background-color: #f6f8fc;
+    background: url('../img/background.png') center;
+    background-size: auto;
 }
 
 .content {

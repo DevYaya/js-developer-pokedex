@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <section class="content">
+    <section id="content" class="content">
         <h1>Pokedex</h1>
 
         <ol id="pokemonList" class="pokemons">
@@ -31,9 +31,24 @@
         </ol>
 
         <div class="pagination">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
+            <button id="loadMoreButton" type="button"> Load More </button>
+        </div>
+    </section>
+
+    <section id="pokemonCard" class="pokemonCard hidden">
+        <div class="pokedexCard">
+            <div id="currentPokemon">
+                <header>
+                    <i id="back" class="fa fa-back">&#8592;</i>
+                </header>
+                <div></div>
+            </div>
+            <nav>
+                <h2 class="active">About</h2>
+            </nav>
+            <div id="infoPokemon">
+                <ol id="about"></ol>
+            </div>
         </div>
     </section>
 
@@ -41,6 +56,8 @@
     <script src="/assets/js/pokemon-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/about.js"></script>
+    <script src="/assets/js/details.js"></script>
 </body>
 
 </html>

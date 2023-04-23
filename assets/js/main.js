@@ -1,13 +1,24 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+const content = document.querySelector("#content")
+const pokemonCard = document.querySelector("#pokemonCard")
+const currentPokemon = document.querySelector("#currentPokemon div")
 
 const maxRecords = 151
 const limit = 10
 let offset = 0;
 
+function handlePokemon(pokemon) {
+    content.classList.add("hidden")
+    pokemonCard.classList.remove("hidden")
+    updatePokemon(pokemon)
+}
+
 function convertPokemonToLi(pokemon) {
-    return `
-        <li class="pokemon ${pokemon.type}">
+    const li = document.createElement("li")
+    li.classList.add("pokemon", pokemon.type)
+    const pokemonHtml = `
+            
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -19,14 +30,20 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
-        </li>
-    `
+        
+    `;
+
+    li.innerHTML = pokemonHtml
+    li.addEventListener("click", () => handlePokemon(pokemon))
+
+    return li
 }
 
-function loadPokemonItens(offset, limit) {
-    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        const newHtml = pokemons.map(convertPokemonToLi).join('')
-        pokemonList.innerHTML += newHtml
+async function loadPokemonItens(offset, limit) {
+    await pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        const newHtml = pokemons.map(convertPokemonToLi)
+        newHtml.forEach((pokemon) => pokemonList.appendChild(pokemon))
+        // pokemonList.innerHTML += newHtml
     })
 }
 
