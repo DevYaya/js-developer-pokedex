@@ -4,9 +4,9 @@
 
 ![](/assets/img/exibition.png)
 
-### O objetivo do projeto é incrementar na Pokedex uma função
-### para acessar o "About" do Pokemon contendo outras informações.
-### Acrescentei um background também.
+O objetivo do projeto é incrementar na Pokedex uma função
+para acessar o "About" do Pokemon contendo outras informações.
+Acrescentei um background também.
 
 ![](/assets/img/exibition2.png)
 
